@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外国人率計算ツール</title>
+</head>
+<body>
+    <h1>あなたの外国人率を計算しましょう</h1>
+    <form id="ancestor-form">
+        <label for="native">先祖の国数を入力してください: </label>
+        <input type="number" id="native" required>
+        <label for="foreign">外国の先祖数を入力してください: </label>
+        <input type="number" id="foreign" required>
+        <button type="button" onclick="calculatePercentage()">計算する</button>
+    </form>
+    <h2 id="result"></h2>
+
+    <script>
+        function calculatePercentage() {
+            const native = parseInt(document.getElementById('native').value);
+            const foreign = parseInt(document.getElementById('foreign').value);
+            const total = native + foreign;
+            const percentage = ((foreign / total) * 100).toFixed(2);
+            document.getElementById('result').innerText = `あなたの外国人率は ${percentage}% です。`;
+        }
+    </script>
+</body>
+</html>
